@@ -10,7 +10,8 @@ export class DisplaySummaryComponent implements OnInit {
 
   public config: PerfectScrollbarConfigInterface = {};
 
-  public summary_data = [{zone:'sinter', value:3},{zone:'360', value:30},{zone:'SlagPit', value:18}]
+  public summary_data = [{zone:'sinter', value:10},{zone:'360°', value:15},{zone:'SlagPit', value:18},
+                         {zone:'geral', value:21},{zone:'Pit Emerg', value:27},{zone:'Alto Forno', value:29}]
 
   constructor() { }
 

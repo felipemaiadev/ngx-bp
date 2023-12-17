@@ -22,8 +22,8 @@
     <table >
         <tr>
             <td class="p-3 mb-2 bg-dark text-white" rowspan="2" style="writing-mode: vertical-lr;"> RESULTADO </td>
-            <ng-container *ngFor="let row of summary_data | keyvalue; let i = index">
-                <td class="zone__name">{{row}}</td>
+            <ng-container *ngFor="let row of summary_data; let i = index">
+                <td class="zone__name">{{row.zone}}</td>
                 <!-- <td class="zone__name">{{row.zone}} - {{i}}</td> -->
                 <!-- <td class="zone__name">SINTER - {{i}} </td>
                 <td class="zone__name">SLAG PIT - {{i}}</td>
@@ -31,8 +31,8 @@
             </ng-container>
         </tr>
         <tr>
-            <ng-container *ngFor="let row of summary_data  | keyvalue; let i = index">
-                <td class="zone__name">{{row}}</td>
+            <ng-container *ngFor="let row of summary_data; let i = index">
+                <td class="zone__name">{{row.value}}</td>
                 <!-- <td>{{row.value}} - {{i}}</td> -->
                 <!-- <td>250 - {{i}}</td>
                 <td>100 - {{i}}</td>
