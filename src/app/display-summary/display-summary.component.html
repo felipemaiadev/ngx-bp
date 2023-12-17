@@ -1,0 +1,50 @@
+<div class="box-container"
+     fxLayout="column"
+     [ngStyle.lt-sm]="'min-height: 800px;'" 
+>
+    <div class="vertical-container"
+     fxLayout="column"
+     fxLayoutAlign="stretch"
+     fxFlex="50%">
+
+    <div class="content-container"
+         fxLayout="column"
+         fxLayoutAlign="stretch"
+         fxFlex="auto">
+
+    <perfect-scrollbar class="scroll-container"
+                        fxFlex="auto"
+                        [config]="config"
+                        [scrollIndicators]="true">
+
+    <div class="scrollable-content">
+        <!-- helooooooooooooooooooooooooooooooooo -->
+    <table >
+        <tr>
+            <td class="p-3 mb-2 bg-dark text-white" rowspan="2" style="writing-mode: vertical-lr;"> RESULTADO </td>
+            <ng-container *ngFor="let row of summary_data | keyvalue; let i = index">
+                <td class="zone__name">{{row}}</td>
+                <!-- <td class="zone__name">{{row.zone}} - {{i}}</td> -->
+                <!-- <td class="zone__name">SINTER - {{i}} </td>
+                <td class="zone__name">SLAG PIT - {{i}}</td>
+                <td class="zone__name">PIT EMERGENCIA - {{i}}</td> -->
+            </ng-container>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let row of summary_data  | keyvalue; let i = index">
+                <td class="zone__name">{{row}}</td>
+                <!-- <td>{{row.value}} - {{i}}</td> -->
+                <!-- <td>250 - {{i}}</td>
+                <td>100 - {{i}}</td>
+                <td>250 - {{i}}</td> -->
+            </ng-container>
+        <tr>
+
+        </tr>
+    </table>
+    </div>
+    </perfect-scrollbar>
+    </div>
+</div>
+
+</div>

@@ -1,7 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import * as XLSX from 'xlsx';
 import { MatTableDataSource } from '@angular/material/table';
 
+import { PerfectScrollbarConfigInterface,
+  PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 @Component({
     selector:'tx-form-coprod',
@@ -18,6 +20,16 @@ export class FormCoprodComponent implements OnInit{
   arrayBuffer:any
   emissions: void;
   filelist: any[];
+
+  public type: string = 'diretive';
+
+  public disabled: boolean = false;
+
+  public config: PerfectScrollbarConfigInterface = {};
+
+  @ViewChild(PerfectScrollbarComponent) componentRef?: PerfectScrollbarComponent;
+  @ViewChild(PerfectScrollbarDirective) directiveRef?: PerfectScrollbarDirective;
+
 
     constructor(){}
 
@@ -43,5 +55,57 @@ export class FormCoprodComponent implements OnInit{
               this.filelist = [];    
               console.log(this.filelist)    
     }
+  }
+
+  public toggleType(): void {
+    this.type = (this.type === 'component') ? 'directive' : 'component';
+  }
+
+  public toggleDisabled(): void {
+    this.disabled = !this.disabled;
+  }
+
+  public scrollToXY(x: number, y: number): void {
+    if (this.type === 'directive' && this.directiveRef) {
+      this.directiveRef.scrollTo(x, y, 500);
+    } else if (this.type === 'component' && this.componentRef && this.componentRef.directiveRef) {
+      this.componentRef.directiveRef.scrollTo(x, y, 500);
+    }
+  }
+
+  public scrollToTop(): void {
+    if (this.type === 'directive' && this.directiveRef) {
+      this.directiveRef.scrollToTop();
+    } else if (this.type === 'component' && this.componentRef && this.componentRef.directiveRef) {
+      this.componentRef.directiveRef.scrollToTop();
+    }
+  }
+
+  public scrollToLeft(): void {
+    if (this.type === 'directive' && this.directiveRef) {
+      this.directiveRef.scrollToLeft();
+    } else if (this.type === 'component' && this.componentRef && this.componentRef.directiveRef) {
+      this.componentRef.directiveRef.scrollToLeft();
+    }
+  }
+
+  public scrollToRight(): void {
+    if (this.type === 'directive' && this.directiveRef) {
+      this.directiveRef.scrollToRight();
+    } else if (this.type === 'component' && this.componentRef && this.componentRef.directiveRef) {
+      this.componentRef.directiveRef.scrollToRight();
+    }
+  }
+
+  public scrollToBottom(): void {
+    if (this.type === 'directive' && this.directiveRef) {
+      this.directiveRef.scrollToBottom();
+    } else if (this.type === 'component' && this.componentRef && this.componentRef.directiveRef) {
+      this.componentRef.directiveRef.scrollToBottom();
+    }
+  }
+
+  public onScrollEvent(event: any): void {
+    console.log(event);
   }
 }
